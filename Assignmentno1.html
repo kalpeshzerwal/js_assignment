@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+  
+  <script>    
+  function Human(Name, age,height) {
+    this.Name = Name;
+    this.age = age;            
+    this.height= height;
+  }
+  Human.prototype.displayinfo=function (){
+    return this.Name + " " + this.age+ " " +this.height;
+
+  } 
+  function Animal(Name, age ,height,type) {
+    this.Name = Name;
+    this.age = age;            
+    this.height = height;
+    this.type = type;
+  }
+
+  Animal.prototype.getinfo = function () {
+    return this.Name + " " + this.age;
+  }
+  Animal.prototype = new Human();
+  Animal.prototype.constructor = Animal;
+
+  var info =new Animal("supadu",23,"6 feet","wild");
+  function Dog(Name,age,color){
+    Animal.call(this, Name, age);
+    this.color = color;
+  }
+  
+  Dog.prototype = new Animal();
+  Dog.prototype.constructor = Dog;
+
+  // var std = new Dog("kalu",12, "white");
+   alert(info.getinfo());
+  alert(info.displayinfo());         
+  
+  alert(info instanceof Animal); 
+  alert(info instanceof Human);
+ 
+ 
+  </script> 
+</body>
+</html>

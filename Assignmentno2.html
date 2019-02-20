@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>student array</title>
+	<script type="text/javascript">		
+		function studentInfo() {
+		var i = 0;
+		var marks = [];
+		var studentData = [];
+		var number = prompt("Enter the student number");
+			for(i=0;i<number;i++) {
+				var name = prompt("Enter student name","");
+				var age = prompt("Enter student age","");
+				for(var j=0;j<3;j++) {
+					marks[j] = prompt("Enter marks of student");
+			}					
+				studentData.push({
+			      name: name,
+			    	age: age,
+			    	marks:marks
+			  });
+			}	  
+	   		searchStudent(studentData,number);
+	   	}		
+
+		function searchStudent(studentData,number){
+			var searchname = prompt("enter the name of stuent to get age of that student");
+			for(var x=0;x<number;x++){
+				if(searchname == studentData[x].name){
+					var studentAge = studentData[x].age;
+					console.log(studentAge);
+					studentPercentage(studentData,number);
+				}
+			}
+
+		}
+
+		function studentPercentage(studentData,number){
+			 var studper=prompt("Enter the student name to get percentage of that student");
+			 for(var z=0;z<number;z++){
+			 		if(studper == studentData[z].name){
+				 	var studname = studentData[z].name;
+				 	var markone = studentData[z].marks[0];
+				 	var marktwo = studentData[z].marks[1];
+				 	var markthree = studentData[z].marks[2];
+				 	var sum =+markone +  +marktwo + +markthree;
+				 	var studpercentage = (sum/100)*300;
+					alert("Name of student is "+studname+" and he got "+studpercentage+" percentage");
+				 	}
+				 	}
+		}	
+	</script>		
+</head>
+<body>
+	<div class="input">
+		<button onclick="studentInfo()">PleaseClick here to Enter the student Information</button>
+	</div>
+</body>
+</html>
